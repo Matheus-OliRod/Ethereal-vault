@@ -1,24 +1,37 @@
-import logo from './logo.svg';
+import Navbar from './components/navbar/Navbar';
+import Featured from './views/featured/Featured';
+import { BrowserRouter as Router, Route, Switch, Routes} from 'react-router-dom';
 import './App.css';
+import Profile from './views/profile/Profile';
+
+// Importing icons from Shoelace framework
+
+import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
+import { registerIconLibrary } from '@shoelace-style/shoelace/dist/utilities/icon-library.js';
+
+
+setBasePath('/node_modules/@shoelace-style/shoelace/dist'); // or wherever your assets live
+
+registerIconLibrary('default', {
+  resolver: name => `https://cdn.jsdelivr.net/npm/lucide-static/icons/${name}.svg`,
+  mutator: svg => svg.setAttribute('fill', 'currentColor')
+});
+
+// Ended importing
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <Navbar />
+    <div className="container">
+      <Routes>
+        <Route index path='/' element={<Featured />} />
+        <Route path='/Hello' element={<h2>Hello, World</h2>} />
+        <Route path='/Profile' element={<Profile />} />
+      </Routes>
     </div>
+    </Router>
+    
   );
 }
 
