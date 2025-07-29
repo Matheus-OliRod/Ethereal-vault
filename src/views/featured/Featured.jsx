@@ -1,10 +1,13 @@
+import Filter from "../../components/filter/Filter";
+import FeaturedPanel from "../../components/featured-panel/FeaturedPanel";
 
 function Featured() {
 
     return (
-        <>
-        <h2>Hello, Featured</h2>
-        </>
+        <div className="featured-container">
+            <Filter />
+            <FeaturedPanel />
+        </div>
     );
 }
 

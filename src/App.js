@@ -1,5 +1,6 @@
 import Navbar from './components/navbar/Navbar';
 import Featured from './views/featured/Featured';
+import Chat from './views/chat/Chat';
 import { BrowserRouter as Router, Route, Switch, Routes} from 'react-router-dom';
 import './App.css';
 import Profile from './views/profile/Profile';
@@ -26,8 +27,8 @@ function App() {
     <div className="container">
       <Routes>
         <Route index path='/' element={<Featured />} />
-        <Route path='/Hello' element={<h2>Hello, World</h2>} />
-        <Route path='/Profile' element={<Profile />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/chat' element={<Chat />} />
       </Routes>
     </div>
     </Router>

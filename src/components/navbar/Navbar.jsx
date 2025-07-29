@@ -44,11 +44,11 @@ function Navbar() {
 
             <div className="guide">
                 <sl-dropdown>
-                    <sl-button classList="" slot="trigger" caret>{pageName}</sl-button>
+                    <sl-button slot="trigger" caret>{pageName}</sl-button>
                     <sl-menu>
-                        <Link to="/"><sl-menu-item  onClick={e => handleCurPageName("Featured")}>Main Page</sl-menu-item></Link>
+                        <Link to="/"><sl-menu-item  onClick={e => handleCurPageName("Featured")}>Featured</sl-menu-item></Link>
                         <Link to="/Profile"><sl-menu-item onClick={e => handleCurPageName("Profile")}>Profile</sl-menu-item></Link>
-                        <Link to="/Hello"><sl-menu-item  onClick={e => handleCurPageName("Hello")}>Hello</sl-menu-item></Link>
+                        <Link to="/chat"><sl-menu-item  onClick={e => handleCurPageName("Chat")}>Chat</sl-menu-item></Link>
                     </sl-menu>
                 </sl-dropdown>
                 <input type="text" />
