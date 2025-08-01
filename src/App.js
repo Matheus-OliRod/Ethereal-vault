@@ -1,4 +1,4 @@
-import Navbar from './components/navbar/Navbar';
+import Navbar from './views/navbar/Navbar';
 import Featured from './views/featured/Featured';
 import Chat from './views/chat/Chat';
 import { BrowserRouter as Router, Route, Switch, Routes} from 'react-router-dom';

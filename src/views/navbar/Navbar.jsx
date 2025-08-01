@@ -44,7 +44,7 @@ function Navbar() {
 
             <div className="guide">
                 <sl-dropdown>
-                    <sl-button slot="trigger" caret>{pageName}</sl-button>
+                    <sl-button variant="primary" slot="trigger" caret>{pageName}</sl-button>
                     <sl-menu>
                         <Link to="/"><sl-menu-item  onClick={e => handleCurPageName("Featured")}>Featured</sl-menu-item></Link>
                         <Link to="/Profile"><sl-menu-item onClick={e => handleCurPageName("Profile")}>Profile</sl-menu-item></Link>

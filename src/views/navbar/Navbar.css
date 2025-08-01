@@ -1,6 +1,5 @@
 
 .navbar {
-    background-color: var(--sl-color-primary-300);
     box-shadow: var(--sl-shadow-medium);
     border-bottom: 1px solid var(--sl-color-neutral-200);
     padding: var(--sl-spacing-small) 1rem;

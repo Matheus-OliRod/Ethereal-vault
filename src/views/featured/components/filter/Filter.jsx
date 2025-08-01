@@ -7,7 +7,7 @@ function Filter() {
 
             <div className="filter-content">
                 <sl-dropdown>
-                    <sl-button slot="trigger" caret>Content Filter</sl-button>
+                    <sl-button variant="primary" slot="trigger" caret>Content Filter</sl-button>
                     <sl-menu>
                         <sl-menu-item value="music">Music</sl-menu-item>
                         <sl-menu-item value="art">Art</sl-menu-item>
@@ -16,6 +16,7 @@ function Filter() {
                     </sl-menu>
                 </sl-dropdown>
             </div>
+
 
             <div id="filter-tags" className="filter-tags">
                 <sl-checkbox>Tag1</sl-checkbox>
