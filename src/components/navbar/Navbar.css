@@ -1,6 +1,6 @@
 
 .navbar {
-    background-color: var(--sl-color-neutral-0);
+    background-color: var(--sl-color-primary-300);
     box-shadow: var(--sl-shadow-medium);
     border-bottom: 1px solid var(--sl-color-neutral-200);
     padding: var(--sl-spacing-small) 1rem;
@@ -10,6 +10,7 @@
     top: 0;
     left: 0;
     right: 0;
+    z-index: 999;
 }
 
 .guide {

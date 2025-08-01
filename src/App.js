@@ -22,9 +22,9 @@ registerIconLibrary('default', {
 
 function App() {
   return (
-    <Router>
+    <Router className="container">
     <Navbar />
-    <div className="container">
+    <div className="page-container">
       <Routes>
         <Route index path='/' element={<Featured />} />
         <Route path='/profile' element={<Profile />} />

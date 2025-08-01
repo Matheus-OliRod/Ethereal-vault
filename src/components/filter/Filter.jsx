@@ -1,8 +1,10 @@
+import "./Filter.css";
 
 function Filter() {
 
     return (
         <div className="filter-container">
+
             <div className="filter-content">
                 <sl-dropdown>
                     <sl-button slot="trigger" caret>Content Filter</sl-button>
@@ -14,8 +16,18 @@ function Filter() {
                     </sl-menu>
                 </sl-dropdown>
             </div>
+
             <div id="filter-tags" className="filter-tags">
-                
+                <sl-checkbox>Tag1</sl-checkbox>
+                <sl-checkbox>Tag2</sl-checkbox>
+                <sl-checkbox>Tag3</sl-checkbox>
+                <sl-checkbox>Tag4</sl-checkbox>
+                <sl-checkbox>Tag5</sl-checkbox>
+                <sl-checkbox>Tag6</sl-checkbox>
+                <sl-checkbox>Tag7</sl-checkbox>
+                <sl-checkbox>Tag8</sl-checkbox>
+                <sl-checkbox>Tag9</sl-checkbox>
+                <sl-checkbox>Tag10</sl-checkbox>
             </div>
         </div>
     );
