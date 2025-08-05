@@ -10,9 +10,7 @@ function FeaturedPanel() {
 
     return (
         <sl-split-panel>
-
             <FeaturedItemContainer slot="start" />
-            <sl-divider vertical></sl-divider>
             <FeaturedProfileContainer slot="end" />
         </sl-split-panel>
     );

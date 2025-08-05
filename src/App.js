@@ -4,11 +4,14 @@ import Chat from './views/chat/Chat';
 import { BrowserRouter as Router, Route, Switch, Routes} from 'react-router-dom';
 import './App.css';
 import Profile from './views/profile/Profile';
+import ItemCard from './views/featured/components/featured-panel/subcomponents/item-display/ItemDisplay';
 
 // Importing icons from Shoelace framework
 
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
 import { registerIconLibrary } from '@shoelace-style/shoelace/dist/utilities/icon-library.js';
+import { createContext } from 'react';
+import { UserDataProvider } from './services/userDataFetch';
 
 
 setBasePath('/node_modules/@shoelace-style/shoelace/dist'); // or wherever your assets live
@@ -20,9 +23,15 @@ registerIconLibrary('default', {
 
 // Ended importing
 
+const data = createContext();
+
 function App() {
   return (
+    <UserDataProvider>
     <Router className="container">
+
+    <ItemCard />
+
     <Navbar />
     <div className="page-container">
       <Routes>
@@ -32,7 +41,7 @@ function App() {
       </Routes>
     </div>
     </Router>
-    
+    </UserDataProvider>
   );
 }
 
