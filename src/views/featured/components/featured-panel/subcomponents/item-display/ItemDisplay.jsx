@@ -2,20 +2,28 @@ import { useState } from "react";
 import ItemCard from "../item-card/ItemCard";
 import { useUser } from "../../../../../../services/userDataFetch";
 
+// import placeHolderImage from "@/res/placeholderImage.webp";
+
 function ItemDisplay() {
 
     const {userData} = useUser();
+    
+    // const placeholderData = {
+    //     "imgSrc" : placeHolderImage,
+    //     "creatorName" : "Name",
+    //     "price" : 0.0
+    // }
 
     /**
      * Substitutes the showcase item card information.
      */
-    const updateItemCard = () => {
+    const callItemCard = () => {
 
     };
 
     return (
-        <div onClick={updateItemCard()}>
-            <img src={"#"} alt="" />
+        <div onClick={callItemCard()}>
+            <img src={""} alt="" />
             <footer>
                 <strong>{"#"}</strong>
                 <small>{"#"}</small>

@@ -12,7 +12,7 @@ export const UserDataProvider = ({children}) => {
 
         const fetchUser = async () => {
             try {
-                const res = await fetch("userDataApi"); // Substitute for actual user fetching file or API
+                const res = await fetch("#"); // Substitute for actual user fetching file or API
                 const data = await res.json();
                 setUserData(data);
             }

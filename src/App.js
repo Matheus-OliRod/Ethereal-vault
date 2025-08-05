@@ -12,6 +12,7 @@ import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.j
 import { registerIconLibrary } from '@shoelace-style/shoelace/dist/utilities/icon-library.js';
 import { createContext } from 'react';
 import { UserDataProvider } from './services/userDataFetch';
+import {hw} from "@src/test";
 
 
 setBasePath('/node_modules/@shoelace-style/shoelace/dist'); // or wherever your assets live
@@ -22,6 +23,8 @@ registerIconLibrary('default', {
 });
 
 // Ended importing
+
+console.log(hw);
 
 const data = createContext();
 
