@@ -1,5 +1,5 @@
-import FeaturedItemContainer from "./subcomponents/FeaturedItemContainer/FeaturedItemContainer";
-import FeaturedProfileContainer from "./subcomponents/FeaturedProfileContainer/FeaturedProfileContainer";
+import FeaturedItemContainer from "./subcomponents/featured-item-container/FeaturedItemContainer";
+import FeaturedProfileContainer from "./subcomponents/featured-profile-container/FeaturedProfileContainer";
 
 /**
  * It returns the container of the profile and item holder. Allowing to switch between each on mobile.

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ItemCard from "../item-card/ItemCard";
 import { useUser } from "../../../../../../services/userDataFetch";
+import placeholderImage from "@/res/images/placeholderImage.webp";
 
 // import placeHolderImage from "@/res/placeholderImage.webp";
 
@@ -23,7 +24,7 @@ function ItemDisplay() {
 
     return (
         <div onClick={callItemCard()}>
-            <img src={""} alt="" />
+            <img src={null} alt="" />
             <footer>
                 <strong>{"#"}</strong>
                 <small>{"#"}</small>

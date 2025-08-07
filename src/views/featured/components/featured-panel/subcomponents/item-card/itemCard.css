@@ -1,0 +1,37 @@
+.glass-pane {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(55, 55, 55, 0.5);
+    z-index: 9999; /* So it is in front of everything, even the navbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-holder {
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.image-holder header {
+    position: absolute;
+    right: 0;
+}
+
+.image-holder img {
+    width: 100%;
+}
+
+sl-card {
+    z-index: 10000;
+    width: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

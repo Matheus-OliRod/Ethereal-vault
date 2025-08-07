@@ -4,7 +4,7 @@ import Chat from './views/chat/Chat';
 import { BrowserRouter as Router, Route, Switch, Routes} from 'react-router-dom';
 import './App.css';
 import Profile from './views/profile/Profile';
-import ItemCard from './views/featured/components/featured-panel/subcomponents/item-display/ItemDisplay';
+import ItemCard from './views/featured/components/featured-panel/subcomponents/item-card/ItemCard';
 
 // Importing icons from Shoelace framework
 
@@ -12,7 +12,6 @@ import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.j
 import { registerIconLibrary } from '@shoelace-style/shoelace/dist/utilities/icon-library.js';
 import { createContext } from 'react';
 import { UserDataProvider } from './services/userDataFetch';
-import {hw} from "@src/test";
 
 
 setBasePath('/node_modules/@shoelace-style/shoelace/dist'); // or wherever your assets live
@@ -23,8 +22,6 @@ registerIconLibrary('default', {
 });
 
 // Ended importing
-
-console.log(hw);
 
 const data = createContext();
 
