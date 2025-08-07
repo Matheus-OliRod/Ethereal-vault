@@ -19,7 +19,7 @@ function ItemDisplay() {
      * Substitutes the showcase item card information.
      */
     const callItemCard = () => {
-
+        
     };
 
     return (

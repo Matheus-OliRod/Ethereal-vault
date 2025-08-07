@@ -11,21 +11,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: .3s linear;
 }
 
-.image-holder {
-    position: relative;
-    padding: 0;
-    margin: 0;
-}
-
-.image-holder header {
+sl-button[variant="text"] {
     position: absolute;
     right: 0;
 }
 
-.image-holder img {
-    width: 100%;
+sl-button[variant="text"]::part(base) {
+    color: darkred;
+    transition: linear .15s;
+    font-weight: bolder;
+}
+
+sl-button[variant="text"]::part(base):hover {
+    color: red;
+    transform: scale(1.2);
 }
 
 sl-card {
@@ -34,4 +36,21 @@ sl-card {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+div[slot="footer"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buy-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buy-div small {
+    color: green;
 }
