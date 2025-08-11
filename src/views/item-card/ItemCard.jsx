@@ -1,6 +1,6 @@
 import "./itemCard.css";
 import { useState } from "react";
-import placeholderImage from "@/res/images/placeholderImage.webp";
+import {useCard} from "./CardContext";
 
 /**
  * A simple and unique item card. The should be only one on the entire page.
@@ -9,6 +9,8 @@ import placeholderImage from "@/res/images/placeholderImage.webp";
  * @returns A sl-card tag containing the items information and content.
  */
 function ItemCard() {
+
+    const { data } = useCard();
 
     /**
      * Formats a number to have x int cases and y decimal cases.
@@ -61,7 +63,7 @@ function ItemCard() {
     }
 
     const [isVisible, setIsVisible] = useState(true);
-    const [price, setPrice] = useState(0.0);
+    const imagePath = require(`@/res/images/placeholderImage.webp`); console.info("Deprecate before production");
 
     const toggleVisible = () => {
         setIsVisible(!isVisible);
@@ -75,24 +77,22 @@ function ItemCard() {
                     <sl-button onClick={toggleVisible} variant="text">X</sl-button>
                     <sl-card>
 
-                            <img slot="image" src={placeholderImage} alt="A piece of art" />
+                            <img slot="image" src={imagePath} alt="A piece of art" />
 
                         
-                            <i>Art name</i> - <strong>Creator</strong> <br /> <br />
+                            <i>{data.title}</i> - <strong>{data.creator}</strong> <br /> <br />
 
                         
-                        <p>This is the description:
-                            As perhaps you may have thought, you weren't supposed to be seeing this...Hi?
-                        </p>
+                        <p>{data.description}</p>
 
                         <br /><br />
 
                         <div slot="footer">
                             <div className="buy-div">
-                                <small>{"$" + formatValue(price, 0, 2)}</small>
+                                <small>{"$" + formatValue(data.price, 0, 2)}</small>
                                 <sl-button variant="success" outline>BUY</sl-button>
                             </div>
-                            <sl-rating></sl-rating>
+                            <sl-rating value={data.rating}></sl-rating>
                         </div>
 
                     </sl-card>

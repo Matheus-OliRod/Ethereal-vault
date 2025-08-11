@@ -4,7 +4,7 @@ import Chat from './views/chat/Chat';
 import { BrowserRouter as Router, Route, Switch, Routes} from 'react-router-dom';
 import './App.css';
 import Profile from './views/profile/Profile';
-import ItemCard from './views/featured/components/featured-panel/subcomponents/item-card/ItemCard';
+import ItemCard from './views/item-card/ItemCard';
 
 // Importing icons from Shoelace framework
 

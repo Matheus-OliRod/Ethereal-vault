@@ -4,12 +4,15 @@ import App from './App';
 import '@shoelace-style/shoelace/dist/themes/light.css';
 import '@shoelace-style/shoelace/dist/themes/dark.css';
 import '@shoelace-style/shoelace/dist/shoelace.js';
+import {CardProvider} from "./views/item-card/CardContext";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <CardProvider>
+      <App />
+    </CardProvider>
   </React.StrictMode>
 );
 

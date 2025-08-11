@@ -9,7 +9,7 @@ import "./Navbar.css";
  */
 function Navbar() {
 
-    console.log("Updated"); // Helps to debug and prevent unecessary updates
+    // console.log("Updated"); // Helps to debug and prevent unecessary updates
 
     const [pageName, setPageName] = useState("Featured");
     const [isDark, setIsDark] = useState(false);

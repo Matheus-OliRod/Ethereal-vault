@@ -1,0 +1,10 @@
+{
+    "creator": "John Doe",
+    "title": "My LOOOOVE",
+    "price": 90.90,
+    "creator_uuid": "id",
+    "creator_profile": "guest",
+    "img_placeholder": "@/res/images/placeholderImage.webp",
+    "rating": 5,
+    "description": "This is the description: As perhaps you may have thought, you weren't supposed to be seeing this...Hi?"
+}

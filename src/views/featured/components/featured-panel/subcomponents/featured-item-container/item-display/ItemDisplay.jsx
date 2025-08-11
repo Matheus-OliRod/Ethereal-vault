@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ItemCard from "../item-card/ItemCard";
 import { useUser } from "../../../../../../services/userDataFetch";
 import placeholderImage from "@/res/images/placeholderImage.webp";
 
@@ -8,12 +7,6 @@ import placeholderImage from "@/res/images/placeholderImage.webp";
 function ItemDisplay() {
 
     const {userData} = useUser();
-    
-    // const placeholderData = {
-    //     "imgSrc" : placeHolderImage,
-    //     "creatorName" : "Name",
-    //     "price" : 0.0
-    // }
 
     /**
      * Substitutes the showcase item card information.
