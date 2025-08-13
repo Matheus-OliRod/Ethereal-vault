@@ -8,10 +8,10 @@ export function useCard() {
 }
 
 export function CardProvider({children}) {
-    const [data, setData] = useState(placeholder);
+    const [cardData, setCardData] = useState(placeholder);
 
     return (
-        <CardContext.Provider value={{data, setData}}>
+        <CardContext.Provider value={{cardData, setCardData}}>
             {children}
         </CardContext.Provider>
     )

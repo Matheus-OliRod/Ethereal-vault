@@ -13,6 +13,7 @@ function Filter() {
                         <sl-menu-item value="art">Art</sl-menu-item>
                         <sl-menu-item value="3d">3D</sl-menu-item>
                         <sl-menu-item value="bundle">Bundles</sl-menu-item>
+                        <sl-menu-item value="profiles">Profiles</sl-menu-item>
                     </sl-menu>
                 </sl-dropdown>
             </div>
