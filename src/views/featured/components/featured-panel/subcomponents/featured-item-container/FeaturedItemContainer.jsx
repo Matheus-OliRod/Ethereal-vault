@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ItemDisplay from "./item-display/ItemDisplay";
+import "./FeaturedItemContainer.css";
 import { useCard } from "@/views/item-card/CardContext";
 
-function FeaturedItemContainer() {
+function FeaturedItemContainer({style}) {
     const [cards, setCards] = useState([]);
     const { cardData } = useCard();
 
     return (
-        <div>
+        <div style={style} className="item-display-container">
+            <ItemDisplay props={cardData} />
+            <ItemDisplay props={cardData} />
+            <ItemDisplay props={cardData} />
+            <ItemDisplay props={cardData} />
+            <ItemDisplay props={cardData} />
+            <ItemDisplay props={cardData} />
             <ItemDisplay props={cardData} />
             <ItemDisplay props={cardData} />
             <ItemDisplay props={cardData} />

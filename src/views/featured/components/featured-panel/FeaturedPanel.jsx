@@ -1,5 +1,8 @@
 import FeaturedItemContainer from "./subcomponents/featured-item-container/FeaturedItemContainer";
 import FeaturedProfileContainer from "./subcomponents/featured-profile-container/FeaturedProfileContainer";
+import "./FeaturedPanel.css";
+import { useContext } from "react";
+import { ToggleVisible } from "../../FeaturedContext";
 
 /**
  * It returns the container of the profile and item holder. Allowing to switch between each on mobile.
@@ -7,12 +10,14 @@ import FeaturedProfileContainer from "./subcomponents/featured-profile-container
  */
 
 function FeaturedPanel() {
+    const {isItemVisible} = useContext(ToggleVisible);
+    console.trace(isItemVisible);
 
     return (
-        <sl-split-panel>
-            <FeaturedItemContainer slot="start" />
-            <FeaturedProfileContainer slot="end" />
-        </sl-split-panel>
+        <div className="fp-container">
+            <FeaturedItemContainer style={{display: isItemVisible ? "flex" : "none"}} />
+            <FeaturedProfileContainer style={{display: isItemVisible ? "none" : "flex"}} />
+        </div>
     );
 }
 

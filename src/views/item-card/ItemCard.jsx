@@ -1,5 +1,4 @@
 import "./itemCard.css";
-import { useState } from "react";
 import {useCard} from "./CardContext";
 
 /**
@@ -11,6 +10,7 @@ import {useCard} from "./CardContext";
 function ItemCard() {
 
     const { cardData, setCardData } = useCard();
+    const imagePath = require(`@/res/images/placeholderImage.webp`); console.info("Deprecate before production");
 
     /**
      * Formats a number to have x decimal cases.
@@ -34,7 +34,6 @@ function ItemCard() {
             return (Math.round(num * 100) / 100).toFixed(decimalCase);
         }
 
-    const imagePath = require(`@/res/images/placeholderImage.webp`); console.info("Deprecate before production");
 
     const toggleVisible = () => {
         setCardData(d => (

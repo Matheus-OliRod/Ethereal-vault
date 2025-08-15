@@ -25,8 +25,10 @@ function ItemDisplay({props}) {
         }));
     };
 
+    console.log("%c Item Card Displays", "color: yellow;")
+
     return (
-        <div onClick={() => callItemCard}>
+        <div onClick={() => callItemCard} className="item-display">
             <h2>Hello, display</h2>
             <img src={srcImg} alt="" />
             <footer>

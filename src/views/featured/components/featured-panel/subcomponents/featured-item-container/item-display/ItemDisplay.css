@@ -1,0 +1,5 @@
+
+.item-display {
+    display: block;
+    width: clamp(300px, 20%, 500px);
+}

@@ -1,5 +1,5 @@
 
-function FeaturedProfileContainer() {
+function FeaturedProfileContainer({style}) {
 
 }
 

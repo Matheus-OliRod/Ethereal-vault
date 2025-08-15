@@ -1,0 +1,8 @@
+
+.item-display-container {
+    background-color: red;
+    display: flex;
+    flex: wrap;
+    gap: 5px;
+    width: 100%;
+}

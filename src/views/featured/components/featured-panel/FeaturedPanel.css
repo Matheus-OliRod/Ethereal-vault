@@ -1,0 +1,6 @@
+
+.fp-container {
+    background-color: cyan;
+    display: flex;
+    max-width: 100%;
+}

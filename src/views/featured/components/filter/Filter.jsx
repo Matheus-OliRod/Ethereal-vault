@@ -1,12 +1,33 @@
+import { useContext, useEffect, useRef, useState } from "react";
 import "./Filter.css";
+import { ToggleVisible } from "../../FeaturedContext";
 
 function Filter() {
+
+    const dropdownRef = useRef(null);
+    const {isItemVisible, setIsItemVisible} = useContext(ToggleVisible);
+
+    useEffect(() => {
+        const dropdown = dropdownRef.current;
+
+        const toggleVisible = (e) => {
+            const selectedItem = e.detail.item;
+
+            if(selectedItem.value === "profiles") setIsItemVisible(false);
+            else if(selectedItem.value != "profiles") setIsItemVisible(true);
+
+            console.trace("visible: ", isItemVisible);
+        }
+
+        dropdown.addEventListener("sl-select", toggleVisible)
+        return () => dropdown.removeEventListener("sl-select", toggleVisible);
+    }, []);
 
     return (
         <div className="filter-container">
 
             <div className="filter-content">
-                <sl-dropdown>
+                <sl-dropdown ref={dropdownRef}>
                     <sl-button variant="primary" slot="trigger" caret>Content Filter</sl-button>
                     <sl-menu>
                         <sl-menu-item value="music">Music</sl-menu-item>
