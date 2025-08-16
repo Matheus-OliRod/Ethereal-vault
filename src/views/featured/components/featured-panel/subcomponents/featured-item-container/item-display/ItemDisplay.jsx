@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useUser } from "@/services/userDataFetch";
 import placeholderImage from "@/res/images/placeholderImage.webp";
 import { useCard } from "@/views/item-card/CardContext";
+import "./ItemDisplay.css";
+
+import imgPaths from "@/res/placeholders/images.json"; // Mock rnadom image getter
 
 // import placeHolderImage from "@/res/placeholderImage.webp";
 
@@ -16,6 +19,12 @@ function ItemDisplay({props}) {
     const { cardData, setCardData } = useCard();
     const srcImg = require("@/res/images/placeholderImage.webp"); // To change when set in production
 
+    // Making a makeshift img loader, so i can test with different images and sizes.
+
+    function getRandomSize() {
+        return Math.floor(Math.random()*80) * 10;
+    }
+
     /**
      * Substitutes the showcase item card information.
      */
@@ -25,12 +34,9 @@ function ItemDisplay({props}) {
         }));
     };
 
-    console.log("%c Item Card Displays", "color: yellow;")
-
     return (
         <div onClick={() => callItemCard} className="item-display">
-            <h2>Hello, display</h2>
-            <img src={srcImg} alt="" />
+            <img src={`https://picsum.photos/seed/${getRandomSize()}/300`} alt="" />
             <footer>
                 <strong>{cardData.creator}</strong>
                 <small>{cardData.price}</small>

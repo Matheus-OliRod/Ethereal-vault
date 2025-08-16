@@ -1,5 +1,44 @@
 
 .item-display {
     display: block;
-    width: clamp(300px, 20%, 500px);
+    position: relative;
+    box-sizing: border-box;
+
+    height: fit-content;
+    min-width: 300px;
+    max-width: 100%;
+
+    cursor: pointer;
+    transition: .15s ease-in;
+    break-inside: avoid;
+}
+
+.item-display img {
+  width: 100%;
+  height: auto;
+  grid-row-end: span calc(var(--rows) * 1px);
+}
+
+.item-display footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    
+    background-color: rgba(69, 145, 231, 0.3);
+    position: absolute;
+    bottom: .3rem;
+    padding: .5rem;
+
+    box-sizing: border-box;
+    transition: .3s linear;
+    opacity: 0;
+}
+
+.item-display:hover {
+    transform: scale(1.03);
+}
+
+.item-display:hover footer{
+    opacity: 1;
 }

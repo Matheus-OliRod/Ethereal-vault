@@ -11,7 +11,6 @@ import { ToggleVisible } from "../../FeaturedContext";
 
 function FeaturedPanel() {
     const {isItemVisible} = useContext(ToggleVisible);
-    console.trace(isItemVisible);
 
     return (
         <div className="fp-container">

@@ -28,17 +28,18 @@ const data = createContext();
 function App() {
   return (
     <UserDataProvider>
-    <Router className="container">
+    <Router>
+    <div className="container">
+      <ItemCard />
 
-    <ItemCard />
-
-    <Navbar />
-    <div className="page-container">
-      <Routes>
-        <Route index path='/' element={<Featured />} />
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/chat' element={<Chat />} />
-      </Routes>
+      <Navbar />
+      <div className="page-container">
+        <Routes>
+          <Route index path='/' element={<Featured />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/chat' element={<Chat />} />
+        </Routes>
+      </div>
     </div>
     </Router>
     </UserDataProvider>
