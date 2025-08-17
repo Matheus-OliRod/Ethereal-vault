@@ -10,7 +10,6 @@ import {useCard} from "./CardContext";
 function ItemCard() {
 
     const { cardData, setCardData } = useCard();
-    const imagePath = require(`@/res/images/placeholderImage.webp`); console.info("Deprecate before production");
 
     /**
      * Formats a number to have x decimal cases.
@@ -39,7 +38,7 @@ function ItemCard() {
         setCardData(d => (
             {
                 ...cardData,
-                isVisible: !d.isVisible
+                isVisible: false
             }
         ));
     }
@@ -52,7 +51,7 @@ function ItemCard() {
                     <sl-button onClick={toggleVisible} variant="text">X</sl-button>
                     <sl-card>
 
-                            <img slot="image" src={imagePath} alt="A piece of art" />
+                            <img slot="image" src={cardData.img_placeholder} alt="A piece of art" />
 
                         
                             <i>{cardData.title}</i> - <strong>{cardData.creator}</strong> <br /> <br />

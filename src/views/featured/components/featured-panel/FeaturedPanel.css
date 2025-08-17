@@ -2,5 +2,5 @@
 .fp-container {
     width: 80%;
     margin: 0 auto;
-    overflow: hidden;
+    overflow: auto;
 }

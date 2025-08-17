@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useUser } from "@/services/userDataFetch";
-import placeholderImage from "@/res/images/placeholderImage.webp";
 import { useCard } from "@/views/item-card/CardContext";
 import "./ItemDisplay.css";
 
@@ -17,9 +16,8 @@ function ItemDisplay({props}) {
 
     const {userData} = useUser();
     const { cardData, setCardData } = useCard();
-    const srcImg = require("@/res/images/placeholderImage.webp"); // To change when set in production
 
-    const randomImages = [
+    const [randomImages] = useState([
         "https://imgs.search.brave.com/CoFqRiA9c3RxlK2NdWKixbh4F8fWZU26BXhqhM2oMxw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Ym9yZWRwYW5kYS5j/b20vYmxvZy93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyNS8wNi9m/dW5ueS1jYXQtcGlj/cy1nZ29taS1jb3Zl/cl82NzUuanBn",
         "https://imgs.search.brave.com/3dMGh6DgPla3-mZJNvJLtQMfRKxgbOXJf9Qxqk22GAI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9idXJz/dC5zaG9waWZ5Y2Ru/LmNvbS9waG90b3Mv/Z3JheS1jYXQtd2l0/aC1hdHRpdHVkZS1p/bi1zdW4uanBnP3dp/ZHRoPTEwMDAmZm9y/bWF0PXBqcGcmZXhp/Zj0wJmlwdGM9MA",
         "https://imgs.search.brave.com/VS9CxTAbxpS42170DZzwPyUKThm_t0uXHjTEj64mo78/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9idXJz/dC5zaG9waWZ5Y2Ru/LmNvbS9waG90b3Mv/YS15YXdpbmctc2lh/bWVzZS1jYXQuanBn/P3dpZHRoPTEwMDAm/Zm9ybWF0PXBqcGcm/ZXhpZj0wJmlwdGM9/MA",
@@ -38,29 +36,38 @@ function ItemDisplay({props}) {
         "https://imgs.search.brave.com/fSRUmJXlMq-I5NhGUl6MBdHz2rBCfZPudPD115DnBuc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAyLzI4LzE4LzYy/LzM2MF9GXzIyODE4/NjIyN19oVEVRUzhr/NFZ0b3BtRVZua0Ji/UHZPYVNJZlhzcVdP/Ti5qcGc",
         "https://imgs.search.brave.com/cmn_jc7v8nrjnm7kwhuV34DFOm1awYLIQ23h3J6NfPs/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9k/aWdpdGFsLWFydC1z/dHlsZS1pbGx1c3Ry/YXRpb24tZmFzaGlv/bi1kZXNpZ25lcl8y/My0yMTUxNTM3NjI0/LmpwZz9zZW10PWFp/c19oeWJyaWQmdz03/NDAmcT04MA",
         "https://imgs.search.brave.com/ylOQwZj22LAZusUvtkB_bXQNF73_jhgfdLhG5gAZMyg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAyLzcyLzc3LzYw/LzM2MF9GXzI3Mjc3/NjA3M19YdGcwaWVD/Rk1IdFV1MHJONmZP/a000cEwxUVlzU0h3/cS5qcGc"
-    ]
+    ]);
 
     // Making a makeshift img loader, so i can test with different images and sizes.
 
     function getRandomImg() {
-        return randomImages[Math.floor(Math.random() * randomImages.length)];
+        const randIndex = Math.floor(Math.random() * randomImages.length);
+        return randomImages[randIndex];
     }
+
+    const [imageURL] = useState(getRandomImg);
 
     /**
      * Substitutes the showcase item card information.
      */
     const callItemCard = () => {
         setCardData(d => ({
-            ...props
+            ...props,
+            isVisible : true,
+            img_placeholder : imageURL
         }));
     };
 
+    const toFixedDecimal = (num, decimals = 2) => {
+        return (Math.round(num * 100) / 100).toFixed(decimals);
+    };
+
     return (
-        <div onClick={() => callItemCard} className="item-display">
-            <img src={getRandomImg()} alt="" />
+        <div onClick={() => callItemCard()} className="item-display">
+            <img src={imageURL} alt="" />
             <footer>
-                <strong>{cardData.creator}</strong>
-                <small>{cardData.price}</small>
+                <strong>{props.creator}</strong>
+                <small>{`$${toFixedDecimal(props.price)}`}</small>
             </footer>
         </div>
     );

@@ -3,7 +3,7 @@
     display: block;
     position: relative;
     box-sizing: border-box;
-    border: 1px solid;
+    margin: .2rem;
 
     cursor: pointer;
     transition: .15s ease-in;
@@ -21,7 +21,7 @@
     justify-content: space-between;
     width: 100%;
     
-    background-color: rgba(69, 145, 231, 0.3);
+    background-color: var(--sl-color-primary-400);
     position: absolute;
     bottom: .3rem;
     padding: .5rem;
@@ -29,6 +29,10 @@
     box-sizing: border-box;
     transition: .3s linear;
     opacity: 0;
+}
+
+.item-display footer small {
+    font-weight: bolder;
 }
 
 .item-display:hover {
