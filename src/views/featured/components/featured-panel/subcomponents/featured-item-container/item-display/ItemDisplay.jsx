@@ -19,10 +19,31 @@ function ItemDisplay({props}) {
     const { cardData, setCardData } = useCard();
     const srcImg = require("@/res/images/placeholderImage.webp"); // To change when set in production
 
+    const randomImages = [
+        "https://imgs.search.brave.com/CoFqRiA9c3RxlK2NdWKixbh4F8fWZU26BXhqhM2oMxw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Ym9yZWRwYW5kYS5j/b20vYmxvZy93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyNS8wNi9m/dW5ueS1jYXQtcGlj/cy1nZ29taS1jb3Zl/cl82NzUuanBn",
+        "https://imgs.search.brave.com/3dMGh6DgPla3-mZJNvJLtQMfRKxgbOXJf9Qxqk22GAI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9idXJz/dC5zaG9waWZ5Y2Ru/LmNvbS9waG90b3Mv/Z3JheS1jYXQtd2l0/aC1hdHRpdHVkZS1p/bi1zdW4uanBnP3dp/ZHRoPTEwMDAmZm9y/bWF0PXBqcGcmZXhp/Zj0wJmlwdGM9MA",
+        "https://imgs.search.brave.com/VS9CxTAbxpS42170DZzwPyUKThm_t0uXHjTEj64mo78/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9idXJz/dC5zaG9waWZ5Y2Ru/LmNvbS9waG90b3Mv/YS15YXdpbmctc2lh/bWVzZS1jYXQuanBn/P3dpZHRoPTEwMDAm/Zm9ybWF0PXBqcGcm/ZXhpZj0wJmlwdGM9/MA",
+        "https://imgs.search.brave.com/-MLiGchwEDBCBoDZkQpeizvyViR_fJZ6gC9CiUEV-LA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9idXJz/dC5zaG9waWZ5Y2Ru/LmNvbS9waG90b3Mv/Y2F0LXBob3RvLWhk/LmpwZz93aWR0aD0x/MDAwJmZvcm1hdD1w/anBnJmV4aWY9MCZp/cHRjPTA",
+        "https://imgs.search.brave.com/IActbwwxt6uwvyRgnfD2b4liPkw7Xk6jHH-LFKXq0PA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzEyLzU2LzUwLzE1/LzM2MF9GXzEyNTY1/MDE1NjNfbFhjeklM/UG5lOXV1Nk5DWUFi/dTN6RFA3aHloZklq/TWcuanBn",
+        "https://imgs.search.brave.com/JMyuiRn8Pk23biQgWuTM7v4ClXkBR1bC47jC9ZTnV5Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzE0LzA1LzMxLzg2/LzM2MF9GXzE0MDUz/MTg2NjlfczhOSzVR/U0l5VFp1U0R2bmRh/QmxDWDBDUDBIY2Vm/R2IuanBn",
+        "https://imgs.search.brave.com/jxB87Gb7kSNnAWQ0F_bgy8iLk33_SqQu9VH3TNYSPWc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly8xY2Fy/cy5vcmcvd3AtY29u/dGVudC91cGxvYWRz/LzIwMTYvMDIvTWFy/dXNzaWEtQjItMS04/MDB4NDUwLmpwZw",
+        "https://imgs.search.brave.com/cCWJ83aClqFQ20XRAowC0-kfdO9lujnOeV9ChX134As/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTE4/NDY2MTY3NS9waG90/by9za3lzY3JhcGVy/cy1mcm9tLWJlbG93/LWxvd2VyLW1hbmhh/dHRhbi5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9RUN3LU85/dy1WNTlrYi1RTzJl/aTYzcjVXcDdxckdx/bTZNbDFrOTAxYjhY/WT0",
+        "https://imgs.search.brave.com/6MQzNsYf9_JXYnq5ULSvr_mp0bGjwyheZ1FSlET2i1g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2I3L2My/LzI2L2I3YzIyNmQ3/YjZhY2EzNTBhYTJj/MjdkMmQwZTFkMWNi/LmpwZw",
+        "https://imgs.search.brave.com/lSjidwb8S3RWUcimtyCiRkKd66JwUpfwxhL1bat-7j8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTMz/OTQ0MzIyMy9waG90/by9tdWx0aS1sYXll/cmVkLWNpdHlzY2Fw/ZS1vZi1sb25kb24t/c2t5bGluZS1lbWVy/Z2luZy10aHJvdWdo/LWNsb3Vkcy5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9WnVn/bUJKc25QSzFXNUxl/TXdmcjNacmVQN2Q0/c3E4Tzlxd3A0eC1o/aVR2ST0",
+        "https://imgs.search.brave.com/SuOPyKsqkB5OBr8hnSfrGoFVaUMEUM5OK1K9OIfzEcM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMuYm9yZWRwYW5k/YS5jb20vYmxvZy93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyMS8w/MS9jbGlwaW1hZ2Ut/NjAwOThiMmI1MTlj/ZV9fNzAwLmpwZw",
+        "https://imgs.search.brave.com/Yo7meQzSHAzeddE2CTNPPxWET96jhZ949xDjGOTOB0E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9leHRl/cm5hbC1wcmV2aWV3/LnJlZGQuaXQvZlJK/TnZpN1hjUy1ZZ0Q5/SFdLSmpON3V0UENU/d0I0dG1DVzRzTVlo/eksyay5qcGc_d2lk/dGg9NjQwJmNyb3A9/c21hcnQmYXV0bz13/ZWJwJnM9ZGJjMDI0/NjYxNDVlN2RiNDJl/MTJjODA5ZjAxYjA5/OWRkNjRjYWExMw",
+        "https://imgs.search.brave.com/fAkrjdAxQD5sxBV7Ets4AZAubCtjin6q12yMITv7Eac/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9leHRl/cm5hbC1wcmV2aWV3/LnJlZGQuaXQvOWY2/cjVZNWdtYy1LcXdI/Rm93VXdqZ1MzZVJ5/enFnVXRkbTMtajN6/cWN2QS5qcGc_YXV0/bz13ZWJwJnM9MTcx/MGYwNDAzOTI2MDdl/MmY2ZmE4NmVmYWFk/YjkwMjE0OTY1Nzdh/Nw",
+        "https://imgs.search.brave.com/EMNc8AKZHaFBpbWi1yvTcsaPM9hZ3cKQnYjzXYA_IkU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFtckJtYXhzbEwu/anBn",
+        "https://imgs.search.brave.com/iPdYgk5INt-oAKQZ5Ny0dMpqY6t2J50XDhK1n39zgk0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/YXJ0LXN0dWRpby1j/bGFzc3Jvb20td2l0/aC1lYXNlbHMtcGFp/bnRzLWJydXNoZXMt/c2hlbHZlcy1idXN0/LXBhaW50aW5ncy13/YWxsXzEwNzc5MS02/NjQxLmpwZz9zZW10/PWFpc19oeWJyaWQm/dz03NDAmcT04MA",
+        "https://imgs.search.brave.com/fSRUmJXlMq-I5NhGUl6MBdHz2rBCfZPudPD115DnBuc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAyLzI4LzE4LzYy/LzM2MF9GXzIyODE4/NjIyN19oVEVRUzhr/NFZ0b3BtRVZua0Ji/UHZPYVNJZlhzcVdP/Ti5qcGc",
+        "https://imgs.search.brave.com/cmn_jc7v8nrjnm7kwhuV34DFOm1awYLIQ23h3J6NfPs/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9k/aWdpdGFsLWFydC1z/dHlsZS1pbGx1c3Ry/YXRpb24tZmFzaGlv/bi1kZXNpZ25lcl8y/My0yMTUxNTM3NjI0/LmpwZz9zZW10PWFp/c19oeWJyaWQmdz03/NDAmcT04MA",
+        "https://imgs.search.brave.com/ylOQwZj22LAZusUvtkB_bXQNF73_jhgfdLhG5gAZMyg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAyLzcyLzc3LzYw/LzM2MF9GXzI3Mjc3/NjA3M19YdGcwaWVD/Rk1IdFV1MHJONmZP/a000cEwxUVlzU0h3/cS5qcGc"
+    ]
+
     // Making a makeshift img loader, so i can test with different images and sizes.
 
-    function getRandomSize() {
-        return Math.floor(Math.random()*80) * 10;
+    function getRandomImg() {
+        return randomImages[Math.floor(Math.random() * randomImages.length)];
     }
 
     /**
@@ -36,7 +57,7 @@ function ItemDisplay({props}) {
 
     return (
         <div onClick={() => callItemCard} className="item-display">
-            <img src={`https://picsum.photos/seed/${getRandomSize()}/300`} alt="" />
+            <img src={getRandomImg()} alt="" />
             <footer>
                 <strong>{cardData.creator}</strong>
                 <small>{cardData.price}</small>

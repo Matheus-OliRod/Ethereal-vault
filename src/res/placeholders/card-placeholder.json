@@ -7,5 +7,5 @@
     "img_placeholder": "@/res/images/placeholderImage.webp",
     "rating": 5,
     "description": "This is the description: As perhaps you may have thought, you weren't supposed to be seeing this...Hi?",
-    "isVisible": true
+    "isVisible": false
 }

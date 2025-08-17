@@ -14,7 +14,7 @@ function FeaturedPanel() {
 
     return (
         <div className="fp-container">
-            <FeaturedItemContainer style={{display: isItemVisible ? "flex" : "none"}} />
+            <FeaturedItemContainer style={{display: isItemVisible ? "grid" : "none"}} />
             <FeaturedProfileContainer style={{display: isItemVisible ? "none" : "flex"}} />
         </div>
     );

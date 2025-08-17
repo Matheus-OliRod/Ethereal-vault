@@ -3,10 +3,7 @@
     display: block;
     position: relative;
     box-sizing: border-box;
-
-    height: fit-content;
-    min-width: 300px;
-    max-width: 100%;
+    border: 1px solid;
 
     cursor: pointer;
     transition: .15s ease-in;
@@ -16,7 +13,6 @@
 .item-display img {
   width: 100%;
   height: auto;
-  grid-row-end: span calc(var(--rows) * 1px);
 }
 
 .item-display footer {

@@ -33,13 +33,11 @@ function App() {
       <ItemCard />
 
       <Navbar />
-      <div className="page-container">
         <Routes>
           <Route index path='/' element={<Featured />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/chat' element={<Chat />} />
         </Routes>
-      </div>
     </div>
     </Router>
     </UserDataProvider>

@@ -8,9 +8,11 @@ function Featured() {
     const [isItemVisible, setIsItemVisible] = useState(true);
 
     return (
-        <ToggleVisible value={{isItemVisible, setIsItemVisible}} className="featured-container">
-            <Filter />
-            <FeaturedPanel />
+        <ToggleVisible value={{isItemVisible, setIsItemVisible}}>
+            <div className="featured-container">
+                <Filter />
+                <FeaturedPanel />
+            </div>
         </ToggleVisible>
     );
 }
