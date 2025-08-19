@@ -4,7 +4,7 @@
   gap: .3rem;
   margin: 0 auto;
 
-  display: block !important;
+  display: block;
   gap: .5rem;
   columns: 300px;
 }

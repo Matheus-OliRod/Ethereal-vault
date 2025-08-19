@@ -15,8 +15,6 @@ function Filter() {
 
             if(selectedItem.value === "profiles") setIsItemVisible(false);
             else if(selectedItem.value != "profiles") setIsItemVisible(true);
-
-            console.trace("visible: ", isItemVisible);
         }
 
         dropdown.addEventListener("sl-select", toggleVisible)

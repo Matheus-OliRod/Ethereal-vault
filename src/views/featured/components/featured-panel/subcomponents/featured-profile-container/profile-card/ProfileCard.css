@@ -1,1 +1,21 @@
 
+.profile-display {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    background-color: var(--sl-color-neutral-300);
+
+    width: 100%;
+    padding: .5rem;
+    transition: .1 linear;
+    box-sizing: border-box;
+}
+
+.profile-display:hover {
+    border-left: 3px solid var(--sl-color-primary-400);
+}
+
+sl-icon {
+    color: red;
+}
