@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { useUser} from "@/services/userDataFetch";
 
 /**
  * Contains link access to all major pages/views of the app.
@@ -13,6 +14,7 @@ function Navbar() {
 
     const [pageName, setPageName] = useState("Featured");
     const [isDark, setIsDark] = useState(false);
+    const {userData} = useUser();
     let isDarkMode = false;
 
     /**
@@ -47,7 +49,7 @@ function Navbar() {
                     <sl-button variant="primary" slot="trigger" caret>{pageName}</sl-button>
                     <sl-menu>
                         <Link to="/"><sl-menu-item  onClick={e => handleCurPageName("Featured")}>Featured</sl-menu-item></Link>
-                        <Link to="/Profile"><sl-menu-item onClick={e => handleCurPageName("Profile")}>Profile</sl-menu-item></Link>
+                        <Link to={`/Profile/${userData.uuid}`}><sl-menu-item onClick={e => handleCurPageName("Profile")}>Profile</sl-menu-item></Link>
                         <Link to="/chat"><sl-menu-item  onClick={e => handleCurPageName("Chat")}>Chat</sl-menu-item></Link>
                     </sl-menu>
                 </sl-dropdown>

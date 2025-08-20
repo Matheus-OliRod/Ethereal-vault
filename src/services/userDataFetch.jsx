@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-
+import mockData from "@/res/placeholders/current-user-data.json";
 
 const UserContext = createContext(null);
 export const useUser = () => useContext(UserContext);
@@ -18,7 +18,7 @@ export const UserDataProvider = ({children}) => {
             }
             catch(err) {
                 console.error("User fetching error: ", err);
-                setUserData(null);
+                setUserData(mockData);
             }
             finally {
                 setLoading(false);

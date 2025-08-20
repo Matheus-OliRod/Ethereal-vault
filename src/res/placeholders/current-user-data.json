@@ -1,0 +1,14 @@
+{
+            "username" : "Matheus",
+            "average_rating": "4.72",
+            "art_type": "art",
+            "profile_pic_url": "#",
+            "main_tags": [
+                "Tag 1",
+                "Tag 2",
+                "Tag 3",
+                "Tag 4",
+                "Tag 5"
+            ],
+            "uuid": "001"
+        }

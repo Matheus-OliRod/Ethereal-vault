@@ -1,7 +1,7 @@
 import Navbar from './views/navbar/Navbar';
 import Featured from './views/featured/Featured';
 import Chat from './views/chat/Chat';
-import { BrowserRouter as Router, Route, Switch, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
 import Profile from './views/profile/Profile';
 import ItemCard from './views/item-card/ItemCard';
@@ -35,7 +35,7 @@ function App() {
       <Navbar />
         <Routes>
           <Route index path='/' element={<Featured />} />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/profile/:id' element={<Profile />} />
           <Route path='/chat' element={<Chat />} />
         </Routes>
     </div>
