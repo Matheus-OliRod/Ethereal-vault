@@ -1,20 +1,24 @@
 import { useState } from "react";
+import art from "@/res/images/art-icon.svg";
+import music from "@/res/images/music-icon.svg";
+import model from "@/res/images/3d-icon.svg"; // Calling model as i cannot set as 3d
+import anything from "@/res/images/anything-icon.svg";
 import "./ProfileCard.css";
 
 function ProfileCard({props}) {
 
     const [profile] = useState(props);
-    const [artName, setArtName] = useState(
-        (profile.art_type === "art") ? "image" :
-        (profile.art_type === "music") ? "file-music" :
-        (profile.art_type === "3d") ? "box" :
+    const [artType, setArtType] = useState(
+        (profile.art_type === "art") ? art :
+        (profile.art_type === "music") ? music :
+        (profile.art_type === "3d") ? model :
         "asterisk"
     );
     const [artText, setArtText] = useState(
         (profile.art_type === "art") ? "Art" :
         (profile.art_type === "music") ? "Music" :
         (profile.art_type === "3d") ? "3D Modeling" :
-        "Anything"
+        anything
     );
     
     return (
@@ -29,14 +33,14 @@ function ProfileCard({props}) {
                 <h3>{profile.username}</h3>
             </div>
             <div className="tag-holder">
-                Tag 1
-                Tag 2
-                Tag 3
-                Tag 4
-                Tag 5
+                <p>Tag 1</p>
+                <p>Tag 2</p>
+                <p>Tag 3</p>
+                <p>Tag 4</p>
+                <p>Tag 5</p>
             </div>
 
-            <sl-icon style={{fontSize: 2 + "rem"}} slot="icon" name={artName} title={artText}></sl-icon>
+            <img src={artType} alt={artText} title={artText} />
             
         </div>
     );

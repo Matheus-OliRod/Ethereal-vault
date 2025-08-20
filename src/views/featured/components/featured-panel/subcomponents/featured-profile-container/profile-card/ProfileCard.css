@@ -2,6 +2,7 @@
 .profile-display {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     cursor: pointer;
 
     background-color: var(--sl-color-neutral-300);
@@ -16,6 +17,34 @@
     border-left: 3px solid var(--sl-color-primary-400);
 }
 
-sl-icon {
-    color: red;
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    gap: .5rem;
+}
+
+/* .profile-info h3 {
+
+    padding: 0 1rem;
+} */
+
+.tag-holder {
+    display: flex;
+    flex-direction: column;
+    padding: 0 .5rem;
+    gap: .3rem;
+}
+
+.tag-holder >*:hover {
+    color: blue;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.profile-display img {
+    width: 3rem;
+    background-color: white;
+    border-radius: 30%;
 }
