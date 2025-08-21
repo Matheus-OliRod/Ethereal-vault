@@ -2,6 +2,7 @@
     "profiles" : [
         {
             "username" : "John Doe",
+            "user_email": "johndoe@gmail.com",
             "average_rating": "4.34",
             "art_type": "art",
             "profile_pic_url": "#",
@@ -16,6 +17,7 @@
         },
         {
             "username" : "Olinda",
+            "user_email": "olinda@gmail.com",
             "average_rating": "4.72",
             "art_type": "art",
             "profile_pic_url": "#",
@@ -30,6 +32,7 @@
         },
         {
             "username" : "Hebert Jones",
+            "user_email": "hjones@gmail.com",
             "average_rating": "3.69",
             "art_type": "music",
             "profile_pic_url": "#",
@@ -45,6 +48,7 @@
         {
             "username" : "Ana",
             "average_rating": "4.98",
+            "user_email": "aana@hotmail.com",
             "art_type": "art",
             "profile_pic_url": "#",
             "main_tags": [
@@ -58,6 +62,7 @@
         },
         {
             "username" : "Sara Elionay",
+            "user_email": "saraelionay@hotmail.com",
             "average_rating": "4.57",
             "art_type": "music",
             "profile_pic_url": "#",
@@ -72,6 +77,7 @@
         },
         {
             "username" : "Jacob",
+            "user_email": "jacob@gmail.com",
             "average_rating": "2.10",
             "art_type": "3d",
             "profile_pic_url": "#",
@@ -86,6 +92,7 @@
         },
         {
             "username" : "Alex",
+            "user_email": "alex@gmail.com",
             "average_rating": "4.34",
             "art_type": "music",
             "profile_pic_url": "#",
@@ -100,6 +107,7 @@
         },
         {
             "username" : "Reggie",
+            "user_email": "reg@gmail.com",
             "average_rating": "3.71",
             "art_type": "art",
             "profile_pic_url": "#",
@@ -114,6 +122,7 @@
         },
         {
             "username" : "Josh Miller",
+            "user_email": "joshm@gmail.com",
             "average_rating": "4.00",
             "art_type": "3d",
             "profile_pic_url": "#",
@@ -128,6 +137,7 @@
         },
         {
             "username" : "Millena",
+            "user_email": "millena@gmail.com",
             "average_rating": "5.00",
             "art_type": "art",
             "profile_pic_url": "#",
@@ -139,6 +149,21 @@
                 "Tag 5"
             ],
             "uuid": "120"
+        },
+        {
+            "username" : "Yokai",
+            "user_email": "matheusuniversidade@hotmail.com",
+            "average_rating": "5.00",
+            "art_type": "art",
+            "profile_pic_url": "#",
+            "main_tags": [
+                "Tag 1",
+                "Tag 2",
+                "Tag 3",
+                "Tag 4",
+                "Tag 5"
+            ],
+            "uuid": "001"
         }
     ]
 }
