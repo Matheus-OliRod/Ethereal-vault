@@ -1,0 +1,42 @@
+
+.profile-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+}
+
+.profile-main {
+    display: flex;
+    gap: .5rem;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .3rem;
+}
+
+.profile-info p:nth-child(2) {
+    margin-left: 1rem;
+}
+
+.proflie-stats, .profile-contacts {
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: var(--sl-color-primary-700);
+}
+
+a:hover {
+    color: var(--sl-color-primary-300);
+    text-decoration: underline;
+}
+
+sl-avatar::part(base) {
+    --size: 4rem;
+}
