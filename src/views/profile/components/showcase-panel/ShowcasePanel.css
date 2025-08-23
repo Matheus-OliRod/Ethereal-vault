@@ -1,11 +1,10 @@
 
 .showcase-display {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
     gap: .5rem;
-    margin: 0 auto;
+    margin: 10% auto;
 
-    width: 80%;
-    
+    width: 90%;
 }

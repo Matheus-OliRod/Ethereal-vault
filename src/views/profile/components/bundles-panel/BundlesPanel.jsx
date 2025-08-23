@@ -1,4 +1,4 @@
-
+import "./BundlesPanel.css";
 function BundlesPanel() {
 
     return (

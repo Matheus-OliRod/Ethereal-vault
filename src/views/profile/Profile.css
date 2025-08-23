@@ -1,6 +1,14 @@
 
-.tab-name-holder {
+.profile-page {
+    overflow: auto;
+}
+
+sl-tab-group::part(nav) {
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid var(--sl-color-neutral-300);
+    align-items: center;
+}
+
+sl-panel {
+    margin: 0 auto;
 }
