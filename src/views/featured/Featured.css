@@ -1,8 +1,22 @@
+/* src/views/featured/Featured.css - Complete Replacement */
 
 .featured-container {
     display: flex;
-    padding: .5rem;
-    height: 100%;
+    min-height: calc(100vh - 80px);
     width: 100%;
-    overflow: auto;
+    overflow-x: hidden;
+    background: var(--sl-color-neutral-50);
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+    .featured-container {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 769px) {
+    .featured-container {
+        flex-direction: row;
+    }
 }

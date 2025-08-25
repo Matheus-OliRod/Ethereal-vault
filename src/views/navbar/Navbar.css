@@ -1,31 +1,149 @@
+/* src/views/navbar/Navbar.css - Complete Replacement */
 
 .navbar {
-    box-shadow: var(--sl-shadow-medium);
+    background: var(--sl-color-neutral-0);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    
     border-bottom: 1px solid var(--sl-color-neutral-200);
-    padding: var(--sl-spacing-small) 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    
+    padding: 1rem 2rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 999;
+    z-index: 1000;
+    
+    min-height: 80px;
+}
+
+.navbar header {
+    display: flex;
+    align-items: center;
+}
+
+.profile-skeleton {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.profile-skeleton:hover {
+    transform: scale(1.05);
 }
 
 .guide {
     display: flex;
-    width: 100%;
-    justify-content: space-evenly;
+    align-items: center;
+    gap: 2rem;
+    flex: 1;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 2rem;
 }
 
-.profile-skeleton {
-  width: 20vw;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  max-width: 70px;
+.guide input[type="text"] {
+    flex: 1;
+    max-width: 300px;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--sl-color-neutral-200);
+    border-radius: 25px;
+    font-size: 1rem;
+    
+    background: var(--sl-color-neutral-50);
+    transition: all 0.3s ease;
+}
+
+.guide input[type="text"]:focus {
+    outline: none;
+    border-color: var(--sl-color-primary-400);
+    background: var(--sl-color-neutral-0);
+    box-shadow: 0 0 0 3px rgba(var(--sl-color-primary-500-rgb), 0.1);
+}
+
+sl-dropdown {
+    min-width: 150px;
+}
+
+sl-dropdown sl-button[slot="trigger"] {
+    --sl-input-height-medium: 44px;
+    --sl-button-font-size-medium: 1rem;
+    font-weight: 600;
+    min-width: 120px;
+}
+
+#theme-toggle-button {
+    --sl-input-height-medium: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: var(--sl-color-neutral-100);
+    border: 2px solid var(--sl-color-neutral-200);
+    
+    transition: all 0.3s ease;
+}
+
+#theme-toggle-button:hover {
+    background: var(--sl-color-neutral-200);
+    transform: rotate(15deg);
 }
 
 a {
     text-decoration: none;
     color: inherit;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--sl-color-primary-600);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+        flex-wrap: wrap;
+        min-height: 70px;
+    }
+    
+    .guide {
+        order: 3;
+        flex: 1 1 100%;
+        margin: 1rem 0 0 0;
+        gap: 1rem;
+    }
+    
+    .guide input[type="text"] {
+        max-width: 100%;
+    }
+    
+    .profile-skeleton {
+        width: 40px;
+        height: 40px;
+    }
+    
+    #theme-toggle-button {
+        --sl-input-height-medium: 40px;
+        width: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .guide {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    sl-dropdown {
+        width: 100%;
+    }
+    
+    sl-dropdown sl-button[slot="trigger"] {
+        width: 100%;
+    }
 }

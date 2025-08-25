@@ -1,59 +1,181 @@
+/* src/views/item-card/itemCard.css */
+
+.card-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
 .glass-pane {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
-    background-color: rgba(55, 55, 55, 0.5);
-    z-index: 9999; /* So it is in front of everything, even the navbar */
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    transition: .3s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  
+  animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-sl-button[variant="text"] {
-    position: absolute;
-    right: 0;
-}
-
-sl-button[variant="text"]::part(base) {
-    color: darkred;
-    transition: linear .15s;
-    font-weight: bolder;
-}
-
-sl-button[variant="text"]::part(base):hover {
-    color: red;
-    transform: scale(1.2);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 sl-card {
-    z-index: 10000;
-    width: 20rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  z-index: 10000;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  
+  background: var(--sl-color-neutral-0);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+sl-card img[slot="image"] {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+sl-button[variant="text"] {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10001;
+  
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+sl-button[variant="text"]::part(base) {
+  color: var(--sl-color-neutral-700);
+  font-weight: 700;
+  font-size: 1.2rem;
+  
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  padding: 0;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+sl-button[variant="text"]::part(base):hover {
+  color: var(--sl-color-danger-600);
+  background: rgba(255, 255, 255, 0.95);
+  transform: scale(1.1);
 }
 
 div[slot="footer"] {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--sl-color-neutral-200);
 }
 
 .buy-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
 }
 
 .buy-div small {
-    color: green;
+  color: var(--sl-color-success-600);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+sl-button[variant="success"] {
+  --sl-input-height-medium: 44px;
+  --sl-button-font-size-medium: 1rem;
+  font-weight: 600;
+}
+
+sl-rating {
+  --sl-color-amber-400: var(--sl-color-warning-400);
+}
+
+/* Card content styling */
+sl-card .card-content {
+  padding: 1.5rem;
+  line-height: 1.6;
+}
+
+sl-card .card-content i {
+  font-size: 1.2rem;
+  color: var(--sl-color-neutral-600);
+}
+
+sl-card .card-content strong {
+  font-size: 1.1rem;
+  color: var(--sl-color-neutral-800);
+}
+
+sl-card .card-content p {
+  color: var(--sl-color-neutral-600);
+  margin: 1rem 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .card-popup {
+    padding: 1rem;
+  }
+  
+  sl-card {
+    max-width: 100%;
+    border-radius: 16px;
+  }
+  
+  div[slot="footer"] {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
 }

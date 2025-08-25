@@ -1,6 +1,9 @@
+/* src/views/featured/components/featured-panel/FeaturedPanel.css - Complete Replacement */
 
 .fp-container {
-    width: 80%;
+    width: 100%;
+    max-width: 1600px;
     margin: 0 auto;
-    overflow: auto;
+    padding: 0 1rem;
+    overflow: visible;
 }

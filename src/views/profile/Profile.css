@@ -1,3 +1,4 @@
+/* src/views/profile/Profile.css - Complete Replacement */
 
 .profile-page {
     overflow: auto;
@@ -7,8 +8,24 @@ sl-tab-group::part(nav) {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem;
 }
 
-sl-panel {
+sl-tab-panel {
     margin: 0 auto;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    sl-tab-group::part(nav) {
+        padding: 0.5rem;
+    }
+    
+    sl-tab-panel {
+        padding: 1rem 0.5rem;
+    }
 }
