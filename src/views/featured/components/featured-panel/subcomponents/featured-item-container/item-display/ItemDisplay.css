@@ -16,8 +16,16 @@
 }
 
 .item-display:hover {
-  transform: translateY(-8px);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: scale(1.03);
+}
+
+.item-display:hover img {
+  transform: scale(1.1);
+}
+
+.item-display img {
+  transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .item-display img {
