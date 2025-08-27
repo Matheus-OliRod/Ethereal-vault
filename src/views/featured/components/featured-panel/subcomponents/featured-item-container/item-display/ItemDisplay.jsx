@@ -4,8 +4,6 @@ import { useCard } from "@/views/item-card/CardContext";
 import randomImages from "@/res/placeholders/random-images.json";
 import "./ItemDisplay.css";
 
-import imgPaths from "@/res/placeholders/images.json"; // Mock rnadom image getter
-
 // import placeHolderImage from "@/res/placeholderImage.webp";
 
 /**
@@ -17,6 +15,7 @@ function ItemDisplay({props}) {
 
     const {userData} = useUser();
     const { cardData, setCardData } = useCard();
+    const [imageURL] = useState(getRandomImg);
 
     // Making a makeshift img loader, so i can test with different images and sizes.
 
@@ -25,7 +24,6 @@ function ItemDisplay({props}) {
         return randomImages.images[randIndex];
     }
 
-    const [imageURL] = useState(getRandomImg);
 
     /**
      * Substitutes the showcase item card information.
