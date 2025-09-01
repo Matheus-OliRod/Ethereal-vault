@@ -1,0 +1,17 @@
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: .3rem;
+
+    box-sizing: border-box;
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.contact-card:hover {
+    background-color: var(--sl-color-neutral-400);
+}
