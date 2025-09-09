@@ -1,20 +1,42 @@
 import current_user from "@/res/placeholders/current-user-data.json";
 import ppi from "@/res/placeholders/profile-info-placeholder.json"; //ppi -> profile page info
-import { useEffect, useState } from "react";
+import "./InfoPanel.css";
+import { useEffect, useRef, useState } from "react";
 
 function InfoPanel() {
 
-    const my_ppi = ppi.profiles[10];
+    const dialogRef = useRef(null);
+    const introRef = useRef(null);
+    const descriptionRef = useRef(null);
+
+    const [my_ppi] = useState(ppi.profiles[10]); // Set to use current user
 
     const [intro, setIntro] = useState(my_ppi.header);
     const [content, setContent] = useState(my_ppi.content);
 
+    const editContent = () => {
+        dialogRef.current.show();
+    }
+
     return (
         <div className="info-display">
 
-            <h1 className="intro-text" contentEditable={my_ppi.uuid === current_user.uuid}>{intro}</h1>
+            {/* Dialog for altering text*/}
+            <sl-dialog ref={dialogRef} label="Editing">
 
-            <p className="content-text" contentEditable={my_ppi.uuid === current_user.uuid}>{content}</p>
+                <div className="edit-display">
+                    <h1 ref={introRef} className="intro-text" suppressContentEditableWarning={true} contentEditable>{intro}</h1>
+                    <p ref={descriptionRef} className="content-text" suppressContentEditableWarning={true} contentEditable>{content}</p>
+                </div>
+
+                <sl-button className="edit-finish-button">Finish</sl-button>
+            </sl-dialog>
+
+            <sl-icon-button onClick={editContent} style={{display: (my_ppi.uuid === current_user.uuid ? "block" : "none")}} name="pencil" className="edit-profile-button"></sl-icon-button>
+
+            <h1 className="intro-text">{intro}</h1>
+
+            <p className="content-text">{content}</p>
 
         </div>
     );

@@ -1,29 +1,19 @@
 import { useState } from "react";
-import ContactCard from "./contact-card/ContactCard";
+import ContactNav from "./contact-nav/ContactNav";
+import ChatDisplay from "./chat-display/ChatDisplay";
 import "./Chat.css";
 
 function Chat() {
 
-    const [messages] = useState({}); // Message blocks
+    const [contacts] = useState([]);
+    const [messages] = useState([]); // Message blocks
 
     return (
         <div className="chat-panel">
-            <nav className="chat-contacts">
-                <ContactCard />
-                <ContactCard />
-            </nav>
+            
+            <ContactNav />
 
-            <div className="chat">
-                <nav className="chat-nav">
-                    <sl-details summary="Contact 1"></sl-details>
-                </nav>
-
-                <div className="message-holder"></div>
-                <form className="chat-input">
-                    <sl-input pill filled placeholder="Enter message"></sl-input>
-                    <sl-button variant="primary" className="send-message-button">Send</sl-button>
-                </form>
-            </div>
+            <ChatDisplay />
         </div>
     );
 }
