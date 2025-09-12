@@ -11,29 +11,6 @@ function ItemCard() {
 
     const { cardData, setCardData } = useCard();
 
-    /**
-     * Formats a number to have x decimal cases.
-     * 
-     * Examples:
-     * 
-     * @example
-     * // Returns 1.00
-     * format(1.0, 2);
-     * 
-     * @example
-     * // Returns 1.2
-     * format(1.23);
-     * 
-     * @param {number} num : The number to format
-     * @param {number} decimalCase : The minimun decimal cases it should have
-     * @returns {String} The fixed decimal
-     */
-
-    function formatValue(num, decimalCase = 0) {
-            return (Math.round(num * 100) / 100).toFixed(decimalCase);
-        }
-
-
     const toggleVisible = () => {
         setCardData(d => (
             {
@@ -62,10 +39,6 @@ function ItemCard() {
                         <br /><br />
 
                         <div slot="footer">
-                            <div className="buy-div">
-                                <small>{"$" + formatValue(cardData.price, 2)}</small>
-                                <sl-button variant="success" outline>BUY</sl-button>
-                            </div>
                             <sl-rating value={cardData.rating}></sl-rating>
                         </div>
 

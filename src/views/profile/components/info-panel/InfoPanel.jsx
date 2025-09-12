@@ -14,25 +14,29 @@ function InfoPanel() {
     const [intro, setIntro] = useState(my_ppi.header);
     const [content, setContent] = useState(my_ppi.content);
 
+    // TODO: Send updated info to backend
     const editContent = () => {
-        dialogRef.current.show();
+        setIntro(introRef.current.innerHTML);
+        setContent(descriptionRef.current.innerHTML);
+
+        dialogRef.current.hide();
     }
 
     return (
         <div className="info-display">
 
             {/* Dialog for altering text*/}
-            <sl-dialog ref={dialogRef} label="Editing">
+            <sl-dialog className="edit-info-dialog" ref={dialogRef} label="Editing">
 
                 <div className="edit-display">
                     <h1 ref={introRef} className="intro-text" suppressContentEditableWarning={true} contentEditable>{intro}</h1>
                     <p ref={descriptionRef} className="content-text" suppressContentEditableWarning={true} contentEditable>{content}</p>
                 </div>
 
-                <sl-button className="edit-finish-button">Finish</sl-button>
+                <sl-button onClick={editContent} slot="footer" className="edit-finish-button">Finish</sl-button>
             </sl-dialog>
 
-            <sl-icon-button onClick={editContent} style={{display: (my_ppi.uuid === current_user.uuid ? "block" : "none")}} name="pencil" className="edit-profile-button"></sl-icon-button>
+            <sl-icon-button onClick={() => {dialogRef.current.show()}} style={{display: (my_ppi.uuid === current_user.uuid ? "block" : "none")}} name="pencil" className="edit-profile-button"></sl-icon-button>
 
             <h1 className="intro-text">{intro}</h1>
 
