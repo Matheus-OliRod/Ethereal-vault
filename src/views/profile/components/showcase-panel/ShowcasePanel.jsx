@@ -11,6 +11,7 @@ function ShowcasePanel() {
     const thumbnailPreviewRef = useRef(null);
     const imageUploadRef = useRef(null);
     
+    const [thumbnailFile, setThumbnailFile] = useState(null);
     const [thumbnailImg, setThumbnailImg] = useState(null);
     const [showcaseDisplays, setShowcaseDisplays] = useState([]);
 
@@ -19,11 +20,24 @@ function ShowcasePanel() {
     };
 
     const handleFileChange = (e) => {
-        const file = e.target.files?.[0];
+        const newFile = e.target.files?.[0];
 
-        if(file) {
+        if(!newFile) return;
 
-        }
+        if(thumbnailImg) URL.revokeObjectURL(thumbnailImg); // Deleting previous image from memory
+
+        const imgUrl = URL.createObjectURL(newFile);
+        setThumbnailFile(newFile);
+        setThumbnailImg(imgUrl);
+
+        e.target.value = ""; // Reseting image choice
+        
+    }
+
+    const handlePreviewDeletion = () => {
+        if(thumbnailImg) URL.revokeObjectURL(thumbnailFile); // Deleting image only if it exists in first place
+        setThumbnailFile(null);
+        setThumbnailImg(null);
     }
 
     const handlePreview = () => {
@@ -35,10 +49,11 @@ function ShowcasePanel() {
         <div style={{display: "flex",flexDirection: "column", alignItems: "center"}}>
             <sl-dialog className="showcase-dialog" ref={dialogRef} label="Add new showcase item:">
 
-                <div onClick={handlePreview} className="thumbnail-display">
-                    <h1 style={{display: (thumbnailImg != null) ? "none" : "block"}} className="add-thumbnail">+</h1>
-                    <div ref={thumbnailPreviewRef} className="thumbnail-preview"></div>
-                    <sl-input onChange={handleFileChange} ref={imageUploadRef} style={{display: "none"}} type="file" accept="image/*"></sl-input>
+                <div className="thumbnail-display">
+                    <h1 onClick={handlePreview} style={{display: (!thumbnailImg ? "flex" : "none")}} className="add-thumbnail">+</h1>
+                    <img onClick={handlePreview} style={{display: (!thumbnailImg ? "none" : "block")}} src={thumbnailImg} ref={thumbnailPreviewRef} className="thumbnail-preview"></img>
+                    <input onChange={handleFileChange} ref={imageUploadRef} style={{display: "none"}} type="file" accept="image/*"></input>
+                    <sl-button onClick={handlePreviewDeletion} style={{display: (!thumbnailImg ? "none" : "block")}} className="thumbnail-preview-delete" variant="danger" pill>x</sl-button>
                 </div>
 
                 <form action="" method="post">
