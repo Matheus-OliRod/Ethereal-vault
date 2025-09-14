@@ -1,0 +1,10 @@
+{
+    "creator": "user username",
+    "creator_uuid": "user uuid",
+    "title": "Title",
+    "description":"description",
+    "creator_profile_img": "user profile pic",
+    "showcase_thumbnail": "@/res/images/placeholderImage.webp",
+    "rating": 0,
+    "showcase_uid": "Unique showcase id"
+}
